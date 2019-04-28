@@ -34,6 +34,6 @@ echo "done transcribing"
 
 echo "concatting files"
 
-output=$(python3 concatfiles.py)
+output=$(python3 concatfiles.py "$filename")
 
 echo "done with file $1.wav"

@@ -99,13 +99,13 @@ def getalldata():
 
 def concatfiles():
     with open("audios.csv", 'w') as f:
-        for filename in os.listdir("./transcripts/"):
-            # print(filename)
-            filename = "./transcripts/" + filename
+        for filename in os.listdir("../audiodata/transcripts/"):
+            print(filename)
+            filename = "../audiodata/transcripts/"+filename
             audinfo = open(filename, 'r')
             f.write(audinfo.read())
             audinfo.close()
-        f.close()
+    f.close()
 
 if __name__ == "__main__":
     # getdatafromfolder("../audiofiles/sentdata/16-1498/")
@@ -113,6 +113,9 @@ if __name__ == "__main__":
     # getdatafromfolder("../audiofiles/sentdata/17-532/")
     # getdatafromfolder("../audiofiles/sentdata/17-571/")
     # getdatafromfolder("../audiofiles/sentdata/17-647/")
+    # getdatafromfolder("../audiofiles/sentdata/17-1091/")
+    # getdatafromfolder("../audiofiles/sentdata/17-1094/")
+    # getdatafromfolder("../audiofiles/sentdata/17-1174/")
     # getdatafromfolder("../audiofiles/sentdata/17-1184/")
     # getdatafromfolder("../audiofiles/sentdata/17-1201/")
     # getdatafromfolder("../audiofiles/sentdata/17-1299/")
@@ -125,6 +128,7 @@ if __name__ == "__main__":
     # getdatafromfolder("../audiofiles/sentdata/18-431/")
     # getdatafromfolder("../audiofiles/sentdata/18-459/")
 
+    # getdatafromfolder("../audiofiles/sentdata/17-1107/") # only first utterance
     # getdatafromfolder("../audiofiles/sentdata/17-290/") # breaks at 17-290-part51.wav, first utterance ??
     # getdatafromfolder("../audiofiles/sentdata/17-1625/") # broken for some reason??? - not used in audio data set, but used in text set
 

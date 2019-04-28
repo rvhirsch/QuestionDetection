@@ -1,23 +1,26 @@
 import os
+import sys
 
 # concat all files for single audio
 
 totalfile = open("sents.csv", 'w')
 
-for filename in os.listdir("../audiofiles/transcripts/"):
-# for filename in os.listdir("../audiofiles/sentdata/17-1594/transcripts/"):
-    print(filename)
-    filename = "../audiofiles/transcripts/" + filename
-    f = open(filename, 'r')
-    # transcript = f.read()
-    for sent in f:
-        newsent = sent.strip()
-        if '?' in newsent.split(',')[0]:
-            newsent += ",1"
-        else:
-            newsent += ",0"
-        totalfile.write(newsent + "\n")
-    f.close()
+for foldername in os.listdir("../audiofiles/sentdata/"):
+    if foldername == "sents.csv":
+        continue
+    print("dir:", foldername)
+    for filename in os.listdir("../audiofiles/sentdata/"+foldername+"/transcripts/"):
+        filename = "../audiofiles/sentdata/"+foldername+"/transcripts/" + filename
+        f = open(filename, 'r')
+
+        for sent in f:
+            newsent = sent.strip()
+            if '?' in newsent.split(',')[0]:
+                newsent += ",1"
+            else:
+                newsent += ",0"
+            totalfile.write(newsent + "\n")
+        f.close()
 
 totalfile.close()
 
