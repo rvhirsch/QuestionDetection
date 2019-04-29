@@ -36,4 +36,4 @@ echo "concatting files"
 
 output=$(python3 concatfiles.py "$filename")
 
-echo "done with file $1.wav"
+echo "DONE with file $1.wav"

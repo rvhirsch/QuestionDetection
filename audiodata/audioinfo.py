@@ -108,12 +108,14 @@ def concatfiles():
     f.close()
 
 if __name__ == "__main__":
+    print("getting audio data")
+
     # getdatafromfolder("../audiofiles/sentdata/16-1498/")
     # getdatafromfolder("../audiofiles/sentdata/17-204/")
     # getdatafromfolder("../audiofiles/sentdata/17-532/")
     # getdatafromfolder("../audiofiles/sentdata/17-571/")
     # getdatafromfolder("../audiofiles/sentdata/17-647/")
-    # getdatafromfolder("../audiofiles/sentdata/17-1091/")
+    getdatafromfolder("../audiofiles/sentdata/17-1091/") # TODO
     # getdatafromfolder("../audiofiles/sentdata/17-1094/")
     # getdatafromfolder("../audiofiles/sentdata/17-1174/")
     # getdatafromfolder("../audiofiles/sentdata/17-1184/")
@@ -132,6 +134,8 @@ if __name__ == "__main__":
     # getdatafromfolder("../audiofiles/sentdata/17-290/") # breaks at 17-290-part51.wav, first utterance ??
     # getdatafromfolder("../audiofiles/sentdata/17-1625/") # broken for some reason??? - not used in audio data set, but used in text set
 
+    print("concatting files")
     concatfiles()
+    print("DONE")
 
 

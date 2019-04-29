@@ -1,9 +1,9 @@
 import os
-import sys
 
 # concat all files for single audio
 
-totalfile = open("sents.csv", 'w')
+sentfile = "../audiofiles/sentdata/sents.csv"
+totalfile = open(sentfile, 'w')
 
 for foldername in os.listdir("../audiofiles/sentdata/"):
     if foldername == "sents.csv":
@@ -25,13 +25,13 @@ for foldername in os.listdir("../audiofiles/sentdata/"):
 totalfile.close()
 
 # add sents to end of full data
-totalfile = open("sents.csv", 'r')
-
-fullfile = open("../audiofiles/sentdata/sents.csv", 'a')
-fullfile.writelines(totalfile.readlines())
-
-totalfile.close()
-fullfile.close()
+# totalfile = open("sents.csv", 'r')
+#
+# fullfile = open("../audiofiles/sentdata/sents.csv", 'w')
+# fullfile.writelines(totalfile.readlines())
+#
+# totalfile.close()
+# fullfile.close()
 
 # f = open("sents.csv", 'r')
 # f2 = open("sents2.csv", 'w')

@@ -106,9 +106,9 @@ def main():
     maximum = -1
     pos = 0
     ct = 0
-    for n in range(10, 110, 10):
-        for d in range(1, 10):
-            for r in range(1, 35):
+    for n in range(10, 90, 10):
+        for d in range(2, 8):
+            for r in range(1, 30):
                 score = getclassifierstats(RandomForestClassifier(n_estimators=n, max_depth=d, random_state=r), X_train, X_test, y_train, y_test)
                 vals = [score, n, d, r]
                 scores_rfc.append(vals)
