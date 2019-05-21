@@ -37,10 +37,15 @@ Output: 13 parameters based on slices of 0.08 sec
 ## Audio Data Sources
 - All via https://www.supremecourt.gov/oral_arguments/argument_audio/2018 
 - 16-1498
-- 17-290 - note: not all data included, runs forever for 17-290-part51.wav, first utterance
+- 17-204
+- 17-290
 - 17-532
 - 17-571
 - 17-647
+- 17-1091
+- 17-1094
+- 17-1107
+- 17-1174
 - 17-1184
 - 17-1201
 - 17-1299
@@ -49,9 +54,16 @@ Output: 13 parameters based on slices of 0.08 sec
 - 17-1484
 - 17-1594
 - 17-1606
-- 17-1625 - note: not used in audio dataset, but used in text set
+- 17-1625
+- 18-95
+- 18-302
+- 18-389
 - 18-431
+- 18-457
 - 18-459
+- 18-481
+- 18-485
+- 18-525
 
 ## Important Links
 
