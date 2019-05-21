@@ -1,13 +1,19 @@
 import pandas as pd
 import nltk
 import re
+import string
 
 def formatsent(sent):
-    pattern = re.compile('\W ')
-    string = re.sub(pattern, '', sent)
-    string = string.lower()
+    # pattern = re.compile('\W ')
+    # string = re.sub(pattern, '', sent)
+    # string = string.lower()
     # print(string)
-    return string.lower()
+    # return string.lower()
+
+    exclude = set(string.punctuation)
+    exclude.remove("'")
+    s = ''.join(ch for ch in sent if ch not in exclude)
+    return s.lower()
 
 def dialogue_act_features(sent):
     features = {}
@@ -104,6 +110,9 @@ def main():
 
     train_set = getsets(train_set)
     test_set = getsets(test_set)
+
+    for sent in train_set[:5]:
+        print(sent)
 
     classifier = train_maxent_classifier(train_set)
 

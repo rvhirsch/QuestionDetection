@@ -112,10 +112,12 @@ if __name__ == "__main__":
 
     # getdatafromfolder("../audiofiles/sentdata/16-1498/")
     # getdatafromfolder("../audiofiles/sentdata/17-204/")
+    # getdatafromfolder("../audiofiles/sentdata/17-290/") # breaks at 17-290-part51.wav, first utterance
     # getdatafromfolder("../audiofiles/sentdata/17-532/")
     # getdatafromfolder("../audiofiles/sentdata/17-571/")
     # getdatafromfolder("../audiofiles/sentdata/17-647/")
-    getdatafromfolder("../audiofiles/sentdata/17-1091/") # TODO
+    # getdatafromfolder("../audiofiles/sentdata/17-1107/")
+    # getdatafromfolder("../audiofiles/sentdata/17-1091/")
     # getdatafromfolder("../audiofiles/sentdata/17-1094/")
     # getdatafromfolder("../audiofiles/sentdata/17-1174/")
     # getdatafromfolder("../audiofiles/sentdata/17-1184/")
@@ -126,13 +128,16 @@ if __name__ == "__main__":
     # getdatafromfolder("../audiofiles/sentdata/17-1484/")
     # getdatafromfolder("../audiofiles/sentdata/17-1594/")
     # getdatafromfolder("../audiofiles/sentdata/17-1606/")
+    # getdatafromfolder("../audiofiles/sentdata/17-1625/")
     # getdatafromfolder("../audiofiles/sentdata/18-96/")
+    # getdatafromfolder("../audiofiles/sentdata/18-302/")
+    # getdatafromfolder("../audiofiles/sentdata/18-389/")
     # getdatafromfolder("../audiofiles/sentdata/18-431/")
+    # getdatafromfolder("../audiofiles/sentdata/18-457/")
     # getdatafromfolder("../audiofiles/sentdata/18-459/")
-
-    # getdatafromfolder("../audiofiles/sentdata/17-1107/") # only first utterance
-    # getdatafromfolder("../audiofiles/sentdata/17-290/") # breaks at 17-290-part51.wav, first utterance ??
-    # getdatafromfolder("../audiofiles/sentdata/17-1625/") # broken for some reason??? - not used in audio data set, but used in text set
+    # getdatafromfolder("../audiofiles/sentdata/18-481/")
+    # getdatafromfolder("../audiofiles/sentdata/18-485/")
+    # getdatafromfolder("../audiofiles/sentdata/18-525/")
 
     print("concatting files")
     concatfiles()
