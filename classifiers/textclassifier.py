@@ -1,19 +1,22 @@
 import pandas as pd
 import nltk
 import re
-import string
+import string as STRING
+
+removePunct = False
 
 def formatsent(sent):
-    # pattern = re.compile('\W ')
-    # string = re.sub(pattern, '', sent)
-    # string = string.lower()
-    # print(string)
-    # return string.lower()
-
-    exclude = set(string.punctuation)
-    exclude.remove("'")
-    s = ''.join(ch for ch in sent if ch not in exclude)
-    return s.lower()
+    exclude = set(STRING.punctuation)
+    if removePunct:
+        exclude.remove("'")
+        s = ''.join(ch for ch in sent if ch not in exclude)
+        return s.lower()
+    else:
+        pattern = re.compile('\W ')
+        string = re.sub(pattern, '', sent)
+        string = string.lower()
+        # print(string)
+        return string.lower()
 
 def dialogue_act_features(sent):
     features = {}
@@ -67,12 +70,19 @@ def getdatastats(data):
     counts = col2.value_counts()
     return counts
 
-def train_maxent_classifier(train_set):
-    print ("training classifier")
-    classifier = nltk.MaxentClassifier.train(train_set, trace=0)
-    print ("done training")
+# def train_maxent_classifier(train_set):
+#     print ("training classifier")
+#     classifier = nltk.MaxentClassifier.train(train_set, trace=0)
+#     print ("done training")
+#
+#     return classifier
 
-    return classifier
+def train_classifier(train_set, classifier, name):
+    print("training", name, "classifier")
+    trained = classifier.train(train_set) #, trace=0)
+    print("done training")
+
+    return trained
 
 def print5inset(test_set):
     i = 0
@@ -87,10 +97,20 @@ def testclassifier(classifier, test_set):
     # print5inset(test_set)
 
     acc = nltk.classify.accuracy(classifier, test_set)
-    # print ("ACCURACY:", acc)
+    print ("ACCURACY:", acc)
+
     return acc
 
+def reportacc(train_set, test_set, classifier, name):
+    print("Remove Punct:", removePunct, "\n")
+
+    classifier = train_classifier(train_set, classifier, name)
+    testclassifier(classifier, test_set)
+
 def main():
+    global removePunct
+    removePunct = True
+
     train_set, test_set = getdata_5050("../audiofiles/sentdata/sents.csv")
 
     # train_set, test_set = getdata("../audiofiles/sentdata/sents.csv")
@@ -111,12 +131,22 @@ def main():
     train_set = getsets(train_set)
     test_set = getsets(test_set)
 
-    for sent in train_set[:5]:
+    for sent in train_set[:2]:
         print(sent)
+    print()
 
-    classifier = train_maxent_classifier(train_set)
+    reportacc(train_set, test_set, nltk.MaxentClassifier, "maxent")
+    # reportacc(train_set, test_set, nltk.NaiveBayesClassifier, "naive bayes")
+    # reportacc(train_set, test_set, nltk.DecisionTreeClassifier, "decision tree")
 
-    print("\nACCURACY:",testclassifier(classifier, test_set))
+    # classifier = train_maxent_classifier(train_set)
+    # classifier = train_classifier(train_set, nltk.MaxentClassifier, "maxent")
+    # testclassifier(classifier, test_set)
+    # print("\nMAXENT ACCURACY:",testclassifier(classifier, test_set))
+
+    # classifier = train_classifier(train_set, nltk.NaiveBayesClassifier, "naive bayes")
+    # testclassifier(classifier, test_set)
+    # print("\nMAXENT ACCURACY:", testclassifier(classifier, test_set))
 
 if __name__=="__main__":
     main()
