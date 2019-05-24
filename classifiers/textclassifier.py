@@ -121,19 +121,19 @@ def main():
     # print(test_set.head())
     # print("test size:", test_set.shape)
 
-    print("\nTRAIN SET INFO:")
-    print(getdatastats(train_set))
-    print("\nTEST SET INFO:")
-    print(getdatastats(test_set))
+    # print("\nTRAIN SET INFO:")
+    # print(getdatastats(train_set))
+    # print("\nTEST SET INFO:")
+    # print(getdatastats(test_set))
 
-    print()
+    # print()
 
     train_set = getsets(train_set)
     test_set = getsets(test_set)
 
-    for sent in train_set[:2]:
-        print(sent)
-    print()
+    # for sent in train_set[:2]:
+    #     print(sent)
+    # print()
 
     reportacc(train_set, test_set, nltk.MaxentClassifier, "maxent")
     # reportacc(train_set, test_set, nltk.NaiveBayesClassifier, "naive bayes")
