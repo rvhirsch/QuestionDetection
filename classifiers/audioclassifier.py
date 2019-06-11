@@ -23,7 +23,9 @@ def getdata_5050(filename):
     data.sample(frac=1)
     # print(data)
 
-    col2 = data.iloc[:, -1]
+    col2 = data.iloc[:, -1] # cols 0 thru 11
+    col2.drop([4])
+
     counts = col2.value_counts().tolist()
     # print("cts:",counts)
     numqs = counts[1]
@@ -39,7 +41,7 @@ def getdata_5050(filename):
 def getsplitdata():
     # data = getdata("../audiodata/audios.csv")
     data = getdata_5050("../audiodata/audios.csv")
-    # print(getdatastats(data))
+    print(getdatastats(data))
 
     data = data.values
     np.random.shuffle(data)
@@ -51,6 +53,7 @@ def getsplitdata():
     y = y.astype('int')
 
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
     return X_train, X_test, y_train, y_test
 
 def getclassifierstats(clf, X_train, X_test, y_train, y_test):
@@ -73,22 +76,22 @@ def main():
 
     # clf = linear_model.SGDClassifier(loss='squared_hinge', max_iter=1000, tol=1e-3) # DONE
     # runmulti(clf, "SGD")
-
+    #
     # clf = GaussianNB(priors=None, var_smoothing=1e-9) # DONE
     # runmulti(clf, "GNB")
-
+    #
     # clf = linear_model.LinearRegression() # DONE
     # runmulti(clf, "LinReg")
+    #
+    # clf = linear_model.LogisticRegression(solver='liblinear', max_iter=1500) # DONE
+    # runmulti(clf, "LogReg")
 
-    clf = linear_model.LogisticRegression(solver='liblinear', max_iter=1500) # DONE
-    runmulti(clf, "LogReg")
-
-    # clf = RandomForestClassifier(n_estimators=90, max_depth=5) #, random_state = 0) # DONE
-    # runmulti(clf, "RFC")
+    clf = RandomForestClassifier(n_estimators=90, max_depth=5) #, random_state = 0) # DONE
+    runmulti(clf, "RFC")
 
     # clf = DecisionTreeClassifier(max_depth=5, splitter="random")  # DONE
     # runmulti(clf, "DTC")
-
+    #
     # clf = KNeighborsClassifier(n_neighbors=25) # DONE
     # runmulti(clf, "KNC")
 

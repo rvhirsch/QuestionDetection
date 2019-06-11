@@ -8,6 +8,7 @@ from mpl_toolkits.mplot3d import Axes3D
 #     textfile = "../audiofiles/sentdata/sents.csv"
 
 def getaudiodata(audiofile):
+    # X = np.loadtxt(audiofile, delimiter=',', usecols=(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11)) # 14 cols total
     X = np.loadtxt(audiofile, delimiter=',', usecols=(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11)) # 14 cols total
     y = np.loadtxt(audiofile, delimiter=',', usecols=(13)) # 14 cols total
     return X, y
@@ -78,7 +79,7 @@ def PCA3D(x, y):
         indicesToKeep = finalDf['target'] == target
         ax.scatter(finalDf.loc[indicesToKeep, 'PC 1'],
                    finalDf.loc[indicesToKeep, 'PC 2'],
-                   finalDf.loc[indicesToKeep, 'PC 6'],
+                   finalDf.loc[indicesToKeep, 'PC 3'],
                    c=color, s=50)
     ax.legend(["Non-Question", "Question"])
     ax.grid()
